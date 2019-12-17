@@ -1,0 +1,48 @@
+# Editor General Settings
+
+set ruler
+set number
+set wildmenu
+
+set nobackup
+set nowb
+set noswapfile
+
+# File editor settings
+
+filetype plugin on
+filetype indent on
+syntax enable
+
+set cmdheight = 1
+
+# Search settings
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+set lazyredraw
+set magic
+set showmatch
+set mat = 2
+
+# Status bar
+set laststatus=2
+set statusline=\ %{HasPaste()%F%m%r%h\ %w\ \ CWD:\ %r\%{getcwd()}%h\ \ \ Line:\ %1\ \ Column:\ %c\ \ WordCount:\ %{WordCount()}
+
+# Functions
+
+function! HasPaste()
+	if &paste
+	   return 'PASTE MODE '
+	endif
+	return ''
+endfunction
+
+function WordCount()
+	return g:word_count
+endfunction
+
+function UpdateWordCount()
+	let 
